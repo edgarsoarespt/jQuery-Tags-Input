@@ -15,6 +15,7 @@
 
 		function onAddTag(tag) {
 			alert("Added a tag: " + tag);
+			console.log('add');
 		}
 		function onRemoveTag(tag) {
 			alert("Removed a tag: " + tag);
@@ -31,6 +32,7 @@
 				width: 'auto',
 				onChange: function(elem, elem_tags)
 				{
+					console.log(elem, elem_tags);
 					var languages = ['php','ruby','javascript'];
 					$('.tag', elem_tags).each(function()
 					{
@@ -48,16 +50,16 @@
 
 
 // Uncomment this line to see the callback functions in action
-//			$('input.tags').tagsInput({onAddTag:onAddTag,onRemoveTag:onRemoveTag,onChange: onChangeTag});
+			$('#tags_1').tagsInput({onAddTag:onAddTag,onRemoveTag:onRemoveTag,onChange: onChangeTag});
 
 // Uncomment this line to see an input with no interface for adding new tags.
-//			$('input.tags').tagsInput({interactive:false});
+			// $('input.tags').tagsInput({interactive:false});
 		});
 
 	</script>
 		<form>
 			<p><label>Defaults:</label>
-			<input id="tags_1" type="text" class="tags" value="foo,bar,baz,roffle" /></p>
+			<input id="tags_1" type="text" class="tags" value="foo,bar,baz,roffle,ok" /></p>
 
 			<p><label>Technologies: (Programming languages in yellow)</label>
 			<input id="tags_2" type="text" class="tags" value="php,ios,javascript,ruby,android,kindle" /></p>
