@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
+import { TagsInputService } from './tags-input.service';
 
 declare var $: any;
 
@@ -8,19 +9,17 @@ declare var $: any;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'angular-tags-input';
-
-  constructor() {
+  constructor(
+    private tagsInput: TagsInputService
+  ) {
   }
 
   ngOnInit(): void {
-    $(function () {
-      $('#tags_2').tagsInput({
-        width: 'auto',
-        onChange: function (elem, elem_tags) {
-          console.log(elem);
-        }
-      });
-    });
+    this.tagsInput.setControl('tag01');
+    this.tagsInput.setValue('tag01', 'honda,fiat');
+  }
+
+  onChangeValue() {
+    this.tagsInput.setValue('tag01', 'renault,bmw,mercedes benz');
   }
 }
